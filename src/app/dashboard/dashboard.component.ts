@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   	getBestHeroes() {
   		console.log('get best');
-  		var heroes=this.model.getHeroes();
+  		var heroes=this.model.getHeroes().slice(0);
   		heroes.sort(function(a,b){return  b.points - a.points;})
   		this.heroes = heroes;
   	}

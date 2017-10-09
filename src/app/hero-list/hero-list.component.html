@@ -1,3 +1,24 @@
-<p>
-  hero-list works!
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-3">
+			<ul class="list-group"  >
+				<li *ngFor="let hero of heroes" class="list-group-item list-group-item-secondary" 
+					(click)="selectHero(hero)" [class.active]="hero===selectedHero" > 
+					<span> name: {{hero.name}} </span>  
+					<span class="badge badge-secondary"> points: {{hero.points}} </span>
+				</li>
+			</ul>
+		</div>
+		<div class="col-5">
+			<div class="card" *ngIf="selectedHero" >
+				<div class="card-body" >
+					<h4 class="card-title">selected hero view:</h4>
+					<div class="card-text" >
+						<input type="text" [(ngModel)]="selectedHero.name" />  
+						<span class="badge badge-primary" > {{selectedHero.points}} </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
